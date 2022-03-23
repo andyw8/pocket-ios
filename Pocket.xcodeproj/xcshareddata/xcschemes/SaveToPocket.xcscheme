@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F204A75F27E22EC50010E155"
+               BlueprintIdentifier = "F227FCE127EBB709007AA348"
                BuildableName = "SaveToPocket.appex"
                BlueprintName = "SaveToPocket"
                ReferencedContainer = "container:Pocket.xcodeproj">

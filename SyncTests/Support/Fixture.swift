@@ -4,7 +4,9 @@
 
 import Foundation
 import Apollo
+import Sync
 
+@testable import Sync
 
 class Fixture {
     enum ReplacementEscapeStrategy {
@@ -52,6 +54,11 @@ class Fixture {
         return load(name: name, ext: ext).data
     }
 
+    static func decode<T: Decodable>(name: String, ext: String = "json") -> T {
+        let fixture = load(name: name, ext: ext)
+        return fixture.decode()
+    }
+
     func replacing(
         _ placeholder: String,
         withFixtureNamed fixtureName: String,
@@ -92,5 +99,28 @@ class Fixture {
             ext: ext,
             data: data
         )
+    }
+
+    func asGraphQLResult<Operation: GraphQLOperation>(from operation: Operation) -> GraphQLResult<Operation.Data> {
+        do {
+            let anyJSON = try JSONSerialization.jsonObject(with: data, options: [])
+
+            guard let jsonObject = anyJSON as? JSONObject else {
+                throw DecodeError.invalidJSON
+            }
+
+            let response = GraphQLResponse(operation: operation, body: jsonObject)
+            return try response.parseResultFast()
+        } catch {
+            fatalError("Could not decode graphQL result: \(error)")
+        }
+    }
+
+    func decode<T: Decodable>(using decoder: JSONDecoder = JSONDecoder()) -> T {
+        do {
+            return try decoder.decode(T.self, from: data)
+        } catch {
+            fatalError("\(error)")
+        }
     }
 }

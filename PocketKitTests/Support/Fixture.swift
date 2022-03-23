@@ -3,7 +3,7 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 import Foundation
-import Apollo
+@testable import PocketKit
 
 
 class Fixture {
@@ -50,6 +50,19 @@ class Fixture {
 
     static func data(name: String, ext: String = "json") -> Data {
         return load(name: name, ext: ext).data
+    }
+
+    static func decode<T: Decodable>(name: String, ext: String = "json") -> T {
+        let fixture = load(name: name, ext: ext)
+        return fixture.decode()
+    }
+
+    func decode<T: Decodable>(using decoder: JSONDecoder = JSONDecoder()) -> T {
+        do {
+            return try decoder.decode(T.self, from: data)
+        } catch {
+            fatalError("\(error)")
+        }
     }
 
     func replacing(
