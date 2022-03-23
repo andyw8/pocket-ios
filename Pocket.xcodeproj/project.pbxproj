@@ -84,8 +84,6 @@
 		F2045F7C27EBA806003CB9C8 /* Textile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2045F1527EBA69C003CB9C8 /* Textile.framework */; };
 		F2045F8127EBA812003CB9C8 /* Analytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2045F5527EBA6B1003CB9C8 /* Analytics.framework */; };
 		F2045F8A27EBA82F003CB9C8 /* SharedPocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2045EF527EBA695003CB9C8 /* SharedPocketKit.framework */; };
-		F2045F8F27EBA847003CB9C8 /* SharedPocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2045EF527EBA695003CB9C8 /* SharedPocketKit.framework */; };
-		F2045F9427EBA84B003CB9C8 /* Textile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2045F1527EBA69C003CB9C8 /* Textile.framework */; };
 		F2045FA627EBAA60003CB9C8 /* YouTubePlayerKit in Frameworks */ = {isa = PBXBuildFile; productRef = F2045FA527EBAA60003CB9C8 /* YouTubePlayerKit */; };
 		F2045FA827EBAA6C003CB9C8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F2045FA727EBAA6C003CB9C8 /* Lottie */; };
 		F2045FAA27EBAA7B003CB9C8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F2045FA927EBAA7B003CB9C8 /* Kingfisher */; };
@@ -312,12 +310,11 @@
 		F20461AE27EBABEA003CB9C8 /* Sentry in Frameworks */ = {isa = PBXBuildFile; productRef = F20461AD27EBABEA003CB9C8 /* Sentry */; };
 		F20461B027EBAC59003CB9C8 /* SnowplowTracker in Frameworks */ = {isa = PBXBuildFile; productRef = F20461AF27EBAC59003CB9C8 /* SnowplowTracker */; };
 		F20BB0392744542F00AE5E70 /* AlertElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20BB0382744542F00AE5E70 /* AlertElement.swift */; };
+		F21443AE27EBC5F600A7E132 /* SaveToPocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2045ED527EBA68C003CB9C8 /* SaveToPocketKit.framework */; platformFilter = ios; };
+		F21443B327EBC63A00A7E132 /* Textile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2045F1527EBA69C003CB9C8 /* Textile.framework */; platformFilter = ios; };
 		F227FCD927EBB0AB007AA348 /* Bundle+textile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F227FCD827EBB0AB007AA348 /* Bundle+textile.swift */; };
 		F227FCDB27EBB0B6007AA348 /* Bundle+pocketKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F227FCDA27EBB0B6007AA348 /* Bundle+pocketKit.swift */; };
 		F227FCDD27EBB644007AA348 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = F227FCDC27EBB644007AA348 /* Fonts */; };
-		F227FCEC27EBB709007AA348 /* SaveToPocket.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F227FCE227EBB709007AA348 /* SaveToPocket.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F227FCF327EBB7BA007AA348 /* SaveToPocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2045ED527EBA68C003CB9C8 /* SaveToPocketKit.framework */; platformFilter = ios; };
-		F227FCF727EBB7BA007AA348 /* SharedPocketKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2045EF527EBA695003CB9C8 /* SharedPocketKit.framework */; platformFilter = ios; };
 		F227FD0227EBBAB9007AA348 /* LinkedTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F227FCFD27EBBAB8007AA348 /* LinkedTrackerTests.swift */; };
 		F227FD0327EBBAB9007AA348 /* SnowplowTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F227FCFE27EBBAB8007AA348 /* SnowplowTrackerTests.swift */; };
 		F227FD0427EBBAB9007AA348 /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F227FD0027EBBAB9007AA348 /* Mocks.swift */; };
@@ -385,6 +382,7 @@
 		F2A5B6B4271E03B300FB8BF2 /* LaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A5B6B3271E03B300FB8BF2 /* LaunchArguments.swift */; };
 		F2A5B6B6271E03C400FB8BF2 /* LaunchEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A5B6B5271E03C400FB8BF2 /* LaunchEnvironment.swift */; };
 		F2FC070327A9B749009F8D98 /* ArchiveFiltersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2FC070227A9B749009F8D98 /* ArchiveFiltersTests.swift */; };
+		F2FFA86A27EBC23A004B473D /* SaveToPocket.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F227FCE227EBB709007AA348 /* SaveToPocket.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -549,55 +547,30 @@
 			remoteGlobalIDString = F2045EF427EBA695003CB9C8;
 			remoteInfo = SharedPocketKit;
 		};
-		F2045F9127EBA847003CB9C8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 166A81A42637406B0015AA1D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F2045EF427EBA695003CB9C8;
-			remoteInfo = SharedPocketKit;
-		};
-		F2045F9627EBA84B003CB9C8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 166A81A42637406B0015AA1D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F2045F1427EBA69C003CB9C8;
-			remoteInfo = Textile;
-		};
-		F227FCEA27EBB709007AA348 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 166A81A42637406B0015AA1D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F227FCE127EBB709007AA348;
-			remoteInfo = SaveToPocket;
-		};
-		F227FCF527EBB7BA007AA348 /* PBXContainerItemProxy */ = {
+		F21443B027EBC5F600A7E132 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 166A81A42637406B0015AA1D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = F2045ED427EBA68C003CB9C8;
 			remoteInfo = SaveToPocketKit;
 		};
-		F227FCF927EBB7BA007AA348 /* PBXContainerItemProxy */ = {
+		F21443B527EBC63A00A7E132 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 166A81A42637406B0015AA1D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = F2045EF427EBA695003CB9C8;
-			remoteInfo = SharedPocketKit;
+			remoteGlobalIDString = F2045F1427EBA69C003CB9C8;
+			remoteInfo = Textile;
+		};
+		F2FFA86B27EBC23A004B473D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 166A81A42637406B0015AA1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F227FCE127EBB709007AA348;
+			remoteInfo = SaveToPocket;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		166DF27727E9160A00C03BF4 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				F227FCEC27EBB709007AA348 /* SaveToPocket.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F220F2B0264DC0DE0064D272 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -612,6 +585,17 @@
 				F2045F6927EBA6B1003CB9C8 /* Analytics.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2FFA86D27EBC23A004B473D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F2FFA86A27EBC23A004B473D /* SaveToPocket.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -1023,8 +1007,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F2045F9427EBA84B003CB9C8 /* Textile.framework in Frameworks */,
-				F2045F8F27EBA847003CB9C8 /* SharedPocketKit.framework in Frameworks */,
+				F21443B327EBC63A00A7E132 /* Textile.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1105,8 +1088,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F227FCF727EBB7BA007AA348 /* SharedPocketKit.framework in Frameworks */,
-				F227FCF327EBB7BA007AA348 /* SaveToPocketKit.framework in Frameworks */,
+				F21443AE27EBC5F600A7E132 /* SaveToPocketKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1245,22 +1227,13 @@
 		F2045EB627EBA680003CB9C8 /* PocketKit */ = {
 			isa = PBXGroup;
 			children = (
+				F204602827EBAB4F003CB9C8 /* PocketKit.h */,
 				F227FCDA27EBB0B6007AA348 /* Bundle+pocketKit.swift */,
-				F2045FCB27EBAB4E003CB9C8 /* Activity */,
-				F2045FE527EBAB4F003CB9C8 /* Article */,
-				F204600727EBAB4F003CB9C8 /* Assets */,
-				F204602B27EBAB4F003CB9C8 /* Authorization */,
 				F204600E27EBAB4F003CB9C8 /* Date+Extensions.swift */,
 				F204600F27EBAB4F003CB9C8 /* Environment.swift */,
-				F2045FD527EBAB4F003CB9C8 /* Home */,
 				F204600927EBAB4F003CB9C8 /* imageCacheURL.swift */,
-				F204601327EBAB4F003CB9C8 /* Item */,
 				F204603527EBAB4F003CB9C8 /* ItemAction.swift */,
 				F2045FD227EBAB4E003CB9C8 /* Keys.swift */,
-				F204603A27EBAB4F003CB9C8 /* LoggedOut */,
-				F2045FC227EBAB4E003CB9C8 /* Main */,
-				F204601627EBAB4F003CB9C8 /* MyList */,
-				F204604027EBAB4F003CB9C8 /* Navigation */,
 				F204602727EBAB4F003CB9C8 /* NSAttribuetdString+size.swift */,
 				F2045FD427EBAB4F003CB9C8 /* NSCollectionLayoutSection+empty.swift */,
 				F204603627EBAB4F003CB9C8 /* NSLayoutConstraint+withPriority.swift */,
@@ -1268,20 +1241,29 @@
 				F204603827EBAB4F003CB9C8 /* OnDismissHostingController.swift */,
 				F204602927EBAB4F003CB9C8 /* PocketAlert.swift */,
 				F2045FD327EBAB4F003CB9C8 /* PocketAppDelegate.swift */,
-				F204602827EBAB4F003CB9C8 /* PocketKit.h */,
 				F204602A27EBAB4F003CB9C8 /* PocketSceneDelegate.swift */,
-				F204603127EBAB4F003CB9C8 /* ReaderSettings */,
-				F2045FBE27EBAB4E003CB9C8 /* Refresh */,
-				F2045FC727EBAB4E003CB9C8 /* Report */,
-				F204601027EBAB4F003CB9C8 /* Root */,
 				F2045FE427EBAB4F003CB9C8 /* SceneTracker.swift */,
 				F204602E27EBAB4F003CB9C8 /* Services.swift */,
-				F204600A27EBAB4F003CB9C8 /* Settings */,
 				F2045FE327EBAB4F003CB9C8 /* StaticDataCleaner.swift */,
 				F204603727EBAB4F003CB9C8 /* Style+ReaderSettings.swift */,
 				F204602F27EBAB4F003CB9C8 /* UIAlertController+PocketKit.swift */,
 				F204603027EBAB4F003CB9C8 /* UICollectionView+registration.swift */,
 				F2045FCA27EBAB4E003CB9C8 /* URLSessionProtocol.swift */,
+				F2045FCB27EBAB4E003CB9C8 /* Activity */,
+				F2045FE527EBAB4F003CB9C8 /* Article */,
+				F204600727EBAB4F003CB9C8 /* Assets */,
+				F204602B27EBAB4F003CB9C8 /* Authorization */,
+				F2045FD527EBAB4F003CB9C8 /* Home */,
+				F204601327EBAB4F003CB9C8 /* Item */,
+				F204603A27EBAB4F003CB9C8 /* LoggedOut */,
+				F2045FC227EBAB4E003CB9C8 /* Main */,
+				F204601627EBAB4F003CB9C8 /* MyList */,
+				F204604027EBAB4F003CB9C8 /* Navigation */,
+				F204603127EBAB4F003CB9C8 /* ReaderSettings */,
+				F2045FBE27EBAB4E003CB9C8 /* Refresh */,
+				F2045FC727EBAB4E003CB9C8 /* Report */,
+				F204601027EBAB4F003CB9C8 /* Root */,
+				F204600A27EBAB4F003CB9C8 /* Settings */,
 			);
 			path = PocketKit;
 			sourceTree = "<group>";
@@ -2042,7 +2024,7 @@
 				166A81AD2637406C0015AA1D /* Frameworks */,
 				166A81AE2637406C0015AA1D /* Resources */,
 				F220F2B0264DC0DE0064D272 /* Embed Frameworks */,
-				166DF27727E9160A00C03BF4 /* Embed App Extensions */,
+				F2FFA86D27EBC23A004B473D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -2053,7 +2035,7 @@
 				F2045F2727EBA69D003CB9C8 /* PBXTargetDependency */,
 				F2045F4727EBA6A3003CB9C8 /* PBXTargetDependency */,
 				F2045F6727EBA6B1003CB9C8 /* PBXTargetDependency */,
-				F227FCEB27EBB709007AA348 /* PBXTargetDependency */,
+				F2FFA86C27EBC23A004B473D /* PBXTargetDependency */,
 			);
 			name = "Pocket (iOS)";
 			packageProductDependencies = (
@@ -2140,8 +2122,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				F2045F9227EBA847003CB9C8 /* PBXTargetDependency */,
-				F2045F9727EBA84B003CB9C8 /* PBXTargetDependency */,
+				F21443B627EBC63A00A7E132 /* PBXTargetDependency */,
 			);
 			name = SaveToPocketKit;
 			productName = SaveToPocketKit;
@@ -2337,8 +2318,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				F227FCF627EBB7BA007AA348 /* PBXTargetDependency */,
-				F227FCFA27EBB7BA007AA348 /* PBXTargetDependency */,
+				F21443B127EBC5F600A7E132 /* PBXTargetDependency */,
 			);
 			name = SaveToPocket;
 			productName = SaveToPocket;
@@ -3138,32 +3118,22 @@
 			target = F2045EF427EBA695003CB9C8 /* SharedPocketKit */;
 			targetProxy = F2045F8C27EBA82F003CB9C8 /* PBXContainerItemProxy */;
 		};
-		F2045F9227EBA847003CB9C8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F2045EF427EBA695003CB9C8 /* SharedPocketKit */;
-			targetProxy = F2045F9127EBA847003CB9C8 /* PBXContainerItemProxy */;
-		};
-		F2045F9727EBA84B003CB9C8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F2045F1427EBA69C003CB9C8 /* Textile */;
-			targetProxy = F2045F9627EBA84B003CB9C8 /* PBXContainerItemProxy */;
-		};
-		F227FCEB27EBB709007AA348 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F227FCE127EBB709007AA348 /* SaveToPocket */;
-			targetProxy = F227FCEA27EBB709007AA348 /* PBXContainerItemProxy */;
-		};
-		F227FCF627EBB7BA007AA348 /* PBXTargetDependency */ = {
+		F21443B127EBC5F600A7E132 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			platformFilter = ios;
 			target = F2045ED427EBA68C003CB9C8 /* SaveToPocketKit */;
-			targetProxy = F227FCF527EBB7BA007AA348 /* PBXContainerItemProxy */;
+			targetProxy = F21443B027EBC5F600A7E132 /* PBXContainerItemProxy */;
 		};
-		F227FCFA27EBB7BA007AA348 /* PBXTargetDependency */ = {
+		F21443B627EBC63A00A7E132 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			platformFilter = ios;
-			target = F2045EF427EBA695003CB9C8 /* SharedPocketKit */;
-			targetProxy = F227FCF927EBB7BA007AA348 /* PBXContainerItemProxy */;
+			target = F2045F1427EBA69C003CB9C8 /* Textile */;
+			targetProxy = F21443B527EBC63A00A7E132 /* PBXContainerItemProxy */;
+		};
+		F2FFA86C27EBC23A004B473D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F227FCE127EBB709007AA348 /* SaveToPocket */;
+			targetProxy = F2FFA86B27EBC23A004B473D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -3202,6 +3172,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -3262,6 +3233,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -4146,6 +4118,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = SaveToPocket/SaveToPocket.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mozilla Release Engineering (2FA397B66F)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -4176,6 +4149,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_ENTITLEMENTS = SaveToPocket/SaveToPocket.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Mozilla Corporation (43AQ936H96)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
