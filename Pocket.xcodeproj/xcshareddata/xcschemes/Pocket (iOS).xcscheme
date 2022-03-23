@@ -46,10 +46,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SyncTests"
-               BuildableName = "SyncTests"
-               BlueprintName = "SyncTests"
-               ReferencedContainer = "container:PocketKit">
+               BlueprintIdentifier = "SharedPocketKitTests"
+               BuildableName = "SharedPocketKitTests"
+               BlueprintName = "SharedPocketKitTests"
+               ReferencedContainer = "container:PocketPackage">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "SaveToPocketKitTests"
+               BuildableName = "SaveToPocketKitTests"
+               BlueprintName = "SaveToPocketKitTests"
+               ReferencedContainer = "container:PocketPackage">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -59,7 +69,7 @@
                BlueprintIdentifier = "PocketKitTests"
                BuildableName = "PocketKitTests"
                BlueprintName = "PocketKitTests"
-               ReferencedContainer = "container:PocketKit">
+               ReferencedContainer = "container:PocketPackage">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -69,17 +79,17 @@
                BlueprintIdentifier = "AnalyticsTests"
                BuildableName = "AnalyticsTests"
                BlueprintName = "AnalyticsTests"
-               ReferencedContainer = "container:PocketKit">
+               ReferencedContainer = "container:PocketPackage">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SharedPocketKitTests"
-               BuildableName = "SharedPocketKitTests"
-               BlueprintName = "SharedPocketKitTests"
-               ReferencedContainer = "container:PocketKit">
+               BlueprintIdentifier = "SyncTests"
+               BuildableName = "SyncTests"
+               BlueprintName = "SyncTests"
+               ReferencedContainer = "container:PocketPackage">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -89,6 +99,66 @@
                BlueprintIdentifier = "166A81BF2637406C0015AA1D"
                BuildableName = "Tests iOS.xctest"
                BlueprintName = "Tests iOS"
+               ReferencedContainer = "container:Pocket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2045EBB27EBA680003CB9C8"
+               BuildableName = "PocketKitTests.xctest"
+               BlueprintName = "PocketKitTests"
+               ReferencedContainer = "container:Pocket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2045EDB27EBA68C003CB9C8"
+               BuildableName = "SaveToPocketKitTests.xctest"
+               BlueprintName = "SaveToPocketKitTests"
+               ReferencedContainer = "container:Pocket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2045EFB27EBA695003CB9C8"
+               BuildableName = "SharedPocketKitTests.xctest"
+               BlueprintName = "SharedPocketKitTests"
+               ReferencedContainer = "container:Pocket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2045F1B27EBA69D003CB9C8"
+               BuildableName = "TextileTests.xctest"
+               BlueprintName = "TextileTests"
+               ReferencedContainer = "container:Pocket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2045F3B27EBA6A3003CB9C8"
+               BuildableName = "SyncTests.xctest"
+               BlueprintName = "SyncTests"
+               ReferencedContainer = "container:Pocket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2045F5B27EBA6B1003CB9C8"
+               BuildableName = "AnalyticsTests.xctest"
+               BlueprintName = "AnalyticsTests"
                ReferencedContainer = "container:Pocket.xcodeproj">
             </BuildableReference>
          </TestableReference>

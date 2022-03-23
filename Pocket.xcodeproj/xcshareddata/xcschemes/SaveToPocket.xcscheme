@@ -43,6 +43,66 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2045EBB27EBA680003CB9C8"
+               BuildableName = "PocketKitTests.xctest"
+               BlueprintName = "PocketKitTests"
+               ReferencedContainer = "container:Pocket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2045EDB27EBA68C003CB9C8"
+               BuildableName = "SaveToPocketKitTests.xctest"
+               BlueprintName = "SaveToPocketKitTests"
+               ReferencedContainer = "container:Pocket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2045EFB27EBA695003CB9C8"
+               BuildableName = "SharedPocketKitTests.xctest"
+               BlueprintName = "SharedPocketKitTests"
+               ReferencedContainer = "container:Pocket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2045F1B27EBA69D003CB9C8"
+               BuildableName = "TextileTests.xctest"
+               BlueprintName = "TextileTests"
+               ReferencedContainer = "container:Pocket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2045F3B27EBA6A3003CB9C8"
+               BuildableName = "SyncTests.xctest"
+               BlueprintName = "SyncTests"
+               ReferencedContainer = "container:Pocket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F2045F5B27EBA6B1003CB9C8"
+               BuildableName = "AnalyticsTests.xctest"
+               BlueprintName = "AnalyticsTests"
+               ReferencedContainer = "container:Pocket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

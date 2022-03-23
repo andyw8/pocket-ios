@@ -1,8 +1,0 @@
-{
-    "data": {
-        "updateSavedItemFavorite": {
-            "__typename": "[type-name-here]",
-            "id": "the-item-id"
-        }
-    }
-}

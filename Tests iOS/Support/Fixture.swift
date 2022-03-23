@@ -35,8 +35,7 @@ class Fixture {
     }
 
     static func load(name: String, ext: String = "json") -> Fixture {
-        let bundle = Bundle(for: Self.self)
-        guard let url = bundle.url(forResource: "Fixtures/\(name)", withExtension: ext) else {
+        guard let url = Bundle.module.url(forResource: "Fixtures/\(name)", withExtension: ext) else {
             fatalError("Could not find fixture named \(name) in \(bundle)")
         }
 
