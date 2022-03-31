@@ -8,24 +8,26 @@ import Sync
 class MainViewModelTests: XCTestCase {
     private var appSession: AppSession!
     private var saveService: MockSaveService!
-    private var timer: Timer.TimerPublisher!
+    private var dismissTimer: Timer.TimerPublisher!
 
     private func subject(
         appSession: AppSession? = nil,
         saveService: SaveService? = nil,
-        timer: Timer.TimerPublisher? = nil
+        dismissTimer: Timer.TimerPublisher? = nil
     ) -> MainViewModel {
         MainViewModel(
             appSession: appSession ?? self.appSession,
             saveService: saveService ?? self.saveService,
-            dismissTimer: timer ?? self.timer
+            dismissTimer: dismissTimer ?? self.dismissTimer
         )
     }
 
     override func setUp() {
+        self.continueAfterFailure = false
+
         appSession = AppSession()
         saveService = MockSaveService()
-        timer = Timer.TimerPublisher(interval: 0, runLoop: .main, mode: .default)
+        dismissTimer = Timer.TimerPublisher(interval: 0, runLoop: .main, mode: .default)
 
         saveService.stubSave { _ in }
     }

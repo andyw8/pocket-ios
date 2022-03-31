@@ -71,8 +71,8 @@ class MainViewController: UIViewController {
 
             capsuleTopConstraint,
             infoView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            infoView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            infoView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            infoView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
+            infoView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
 
             dismissLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             dismissLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
@@ -83,7 +83,7 @@ class MainViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(finish))
         view.addGestureRecognizer(tap)
 
-        updateUI()
+        configureUI()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -94,18 +94,36 @@ class MainViewController: UIViewController {
         }
     }
 
-    private func updateUI() {
-        infoView.style = viewModel.style
+    private func configureUI() {
+        infoView.style = viewModel.state == .loggedOut ? .error : .default
         infoView.attributedText = viewModel.attributedText
         infoView.attributedDetailText = viewModel.attributedDetailText
+
+        guard let presentedView = viewModel.presenter(for: extensionContext).view else {
+            return
+        }
+
+        view.addSubview(presentedView)
+
+        presentedView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            presentedView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            presentedView.bottomAnchor.constraint(equalTo: dismissLabel.topAnchor, constant: -16),
+            presentedView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            presentedView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
+        ])
     }
 
     @objc
     private func finish() {
         viewModel.finish(context: extensionContext)
     }
+
+    private func logIn() {
+        viewModel.logIn(from: extensionContext)
+    }
 }
 
 private extension Style {
-    static let dismiss: Self = .header.sansSerif.p3.with(color: .ui.grey5).with { $0.with(lineHeight: .explicit(22)) }
+    static let dismiss: Self = .header.sansSerif.p4.with(color: .ui.grey5).with { $0.with(lineHeight: .explicit(22)) }
 }
