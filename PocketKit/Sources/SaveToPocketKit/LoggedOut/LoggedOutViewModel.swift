@@ -8,8 +8,27 @@ class LoggedOutViewModel {
 
     private var dismissTimerCancellable: AnyCancellable? = nil
 
-    lazy var presenter: LoggedOutViewPresenter = {
-        LoggedOutViewPresenter()
+    let infoViewModel = InfoView.Model(
+        style: .error,
+        attributedText: NSAttributedString(
+            string: "Log in to Pocket to save",
+            style: .mainTextError
+        ),
+        attributedDetailText: NSAttributedString(
+            string: "Pocket couldn't save the link. Log in to the Pocket app and try saving again.",
+            style: .detailText
+        )
+    )
+
+    let dismissAttributedText = NSAttributedString(string: "Tap to Dismiss", style: .dismiss)
+
+    let actionButtonConfiguration: UIButton.Configuration = {
+        var configuration: UIButton.Configuration = .filled()
+        configuration.background.backgroundColor = UIColor(.ui.teal2)
+        configuration.background.cornerRadius = 13
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 13, leading: 0, bottom: 13, trailing: 0)
+        configuration.attributedTitle = AttributedString(NSAttributedString(string: "Log in to Pocket", style: .logIn))
+        return configuration
     }()
 
     init(dismissTimer: Timer.TimerPublisher) {

@@ -11,9 +11,16 @@ class SavedItemViewModel {
 
     private var dismissTimerCancellable: AnyCancellable? = nil
 
-    lazy var presenter: SavedItemPresenter = {
-        SavedItemPresenter()
-    }()
+    let infoViewModel = InfoView.Model(
+        style: .default,
+        attributedText: NSAttributedString(
+            string: "Saved to Pocket",
+            style: .mainText
+        ),
+        attributedDetailText: nil
+    )
+
+    let dismissAttributedText = NSAttributedString(string: "Tap to Dismiss", style: .dismiss)
 
     init(appSession: AppSession, saveService: SaveService, dismissTimer: Timer.TimerPublisher) {
         self.appSession = appSession

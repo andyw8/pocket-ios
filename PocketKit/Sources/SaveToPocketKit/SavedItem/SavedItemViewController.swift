@@ -56,8 +56,8 @@ class SavedItemViewController: UIViewController {
             dismissLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
 
-        viewModel.presenter.configure(infoView: infoView)
-        viewModel.presenter.configure(dismissLabel: dismissLabel)
+        infoView.model = viewModel.infoViewModel
+        dismissLabel.attributedText = viewModel.dismissAttributedText
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(finish))
         view.addGestureRecognizer(tap)
