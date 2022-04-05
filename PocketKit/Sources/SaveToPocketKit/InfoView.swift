@@ -7,8 +7,8 @@ enum MainViewStyle {
     case error
 }
 
-class MainInfoView: UIView {
-    private let capsuleView = MainCapsuleView()
+class InfoView: UIView {
+    private let capsuleView = CapsuleView()
 
     private let detailTextLabel: UILabel = {
         let label = UILabel()
@@ -57,7 +57,7 @@ class MainInfoView: UIView {
     }
 }
 
-private class MainCapsuleView: UIView {
+private class CapsuleView: UIView {
     private let imageView = UIImageView()
 
     private let textLabel: UILabel = {
