@@ -14,23 +14,13 @@ class MainViewModel {
     private var dismissTimerCancellable: AnyCancellable? = nil
 
     let state: State
-    let attributedText: NSAttributedString
-    let attributedDetailText: NSAttributedString?
 
     init(appSession: AppSession, saveService: SaveService, dismissTimer: Timer.TimerPublisher) {
         self.appSession = appSession
         self.saveService = saveService
         self.dismissTimer = dismissTimer
 
-        if appSession.currentSession != nil {
-            state = .saved
-            attributedText = NSAttributedString(string: "Saved to Pocket", style: .mainText)
-            attributedDetailText = nil
-        } else {
-            state = .loggedOut
-            attributedText = NSAttributedString(string: "Log in to Pocket to save", style: .mainTextError)
-            attributedDetailText = NSAttributedString(string: "Pocket couldn't save the link. Log in to the Pocket app and try saving again.", style: .detailText)
-        }
+        state = appSession.currentSession == nil ? .loggedOut : .saved
     }
 
     func presenter(for context: ExtensionContext?, origin: Any) -> MainViewPresenter {
@@ -127,14 +117,4 @@ extension MainViewModel {
         case saved
         case loggedOut
     }
-}
-
-private extension Style {
-    static func coloredMainText(color: ColorAsset) -> Style {
-        .header.sansSerif.h2.with(color: color).with { $0.with(lineSpacing: 4) }
-    }
-    static let mainText: Self = coloredMainText(color: .ui.teal2)
-    static let mainTextError: Self = coloredMainText(color: .ui.coral2)
-
-    static let detailText: Self = .header.sansSerif.p2.with { $0.with(lineHeight: .explicit(28)).with(alignment: .center) }
 }

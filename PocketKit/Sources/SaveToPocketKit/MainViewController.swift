@@ -105,14 +105,13 @@ class MainViewController: UIViewController {
     }
 
     private func configureUI() {
-        infoView.style = viewModel.state == .loggedOut ? .error : .default
-        infoView.attributedText = viewModel.attributedText
-        infoView.attributedDetailText = viewModel.attributedDetailText
-
         currentPresenter = viewModel.presenter(for: extensionContext, origin: self)
+
+        currentPresenter?.update(infoView: infoView)
+
         guard let presenter = currentPresenter,
               viewModel.isPresenterUsable(presenter, origin: self),
-              let presentedView = currentPresenter?.view else {
+              let presentedView = currentPresenter?.additionalView else {
             return
         }
 
