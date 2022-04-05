@@ -33,15 +33,23 @@ class MainViewModel {
         }
     }
 
-    func presenter(for context: ExtensionContext?) -> MainViewPresenter {
+    func presenter(for context: ExtensionContext?, origin: Any) -> MainViewPresenter {
         switch state {
         case .saved:
             return SavedViewPresenter()
         case .loggedOut:
             return LoggedOutViewPresenter { [weak self] in
-                self?.handleLoggedOut(context: context)
+                self?.handleLoggedOut(context: context, origin: origin)
             }
         }
+    }
+
+    func isPresenterUsable(_ presenter: MainViewPresenter, origin: Any) -> Bool {
+        guard presenter is LoggedOutViewPresenter else {
+            return true
+        }
+
+        return responder(from: origin) != nil
     }
 
     func save(from context: ExtensionContext?) async {
@@ -72,22 +80,45 @@ class MainViewModel {
         context?.completeRequest(returningItems: nil, completionHandler: completionHandler)
     }
 
-    func logIn(from context: ExtensionContext?) {
-        finish(context: context) { _ in
-            UIApplication.shared.open(URL(string: "pocket-next:")!, options: [:])
+    func logIn(from context: ExtensionContext?, origin: Any) {
+        guard let responder = responder(from: origin) else {
+            return
+        }
+
+        finish(context: context) { [weak self] _ in
+            self?.open(url: URL(string: "pocket-next:")!, using: responder)
         }
     }
 }
 
 extension MainViewModel {
+    private func responder(from origin: Any) -> UIResponder? {
+        guard let origin = origin as? UIResponder else {
+            return nil
+        }
+
+        let selector = sel_registerName("openURL:")
+        var responder: UIResponder? = origin
+        while let r = responder, !r.responds(to: selector) {
+            responder = r.next
+        }
+
+        return responder
+    }
+
+    private func open(url: URL, using responder: UIResponder) {
+        let selector = sel_registerName("openURL:")
+        responder.perform(selector, with: url)
+    }
+
     private func autodismiss(from context: ExtensionContext?) {
         dismissTimerCancellable = dismissTimer.autoconnect().sink { [weak self] _ in
             self?.finish(context: context)
         }
     }
 
-    private func handleLoggedOut(context: ExtensionContext?) {
-        logIn(from: context)
+    private func handleLoggedOut(context: ExtensionContext?, origin: Any) {
+        logIn(from: context, origin: origin)
     }
 }
 

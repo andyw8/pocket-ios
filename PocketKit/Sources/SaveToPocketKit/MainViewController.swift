@@ -13,6 +13,7 @@ class MainViewController: UIViewController {
     private let dismissLabel = UILabel()
 
     private let viewModel: MainViewModel
+    private var currentPresenter: MainViewPresenter? = nil
 
     convenience init() {
         Textiles.initialize()
@@ -82,8 +83,17 @@ class MainViewController: UIViewController {
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(finish))
         view.addGestureRecognizer(tap)
+    }
 
-        configureUI()
+    // We have to defer until the view is actually being
+    // rendered on-screen so that MainViewModel.isPresenterUsable(_:origin:)
+    // can actually return the correct value (specifically for the loggedOut state)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if currentPresenter == nil {
+            configureUI()
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -99,7 +109,10 @@ class MainViewController: UIViewController {
         infoView.attributedText = viewModel.attributedText
         infoView.attributedDetailText = viewModel.attributedDetailText
 
-        guard let presentedView = viewModel.presenter(for: extensionContext).view else {
+        currentPresenter = viewModel.presenter(for: extensionContext, origin: self)
+        guard let presenter = currentPresenter,
+              viewModel.isPresenterUsable(presenter, origin: self),
+              let presentedView = currentPresenter?.view else {
             return
         }
 
@@ -117,10 +130,6 @@ class MainViewController: UIViewController {
     @objc
     private func finish() {
         viewModel.finish(context: extensionContext)
-    }
-
-    private func logIn() {
-        viewModel.logIn(from: extensionContext)
     }
 }
 
