@@ -22,25 +22,26 @@ class LoggedOutViewModel {
 
     let dismissAttributedText = NSAttributedString(string: "Tap to Dismiss", style: .dismiss)
 
-    let actionButtonConfiguration: UIButton.Configuration = {
-        var configuration: UIButton.Configuration = .filled()
-        configuration.background.backgroundColor = UIColor(.ui.teal2)
-        configuration.background.cornerRadius = 13
-        configuration.contentInsets = NSDirectionalEdgeInsets(top: 13, leading: 0, bottom: 13, trailing: 0)
-        configuration.attributedTitle = AttributedString(NSAttributedString(string: "Log in to Pocket", style: .logIn))
-        return configuration
-    }()
+    @Published
+    var actionButtonConfiguration: UIButton.Configuration? = nil
 
     init(dismissTimer: Timer.TimerPublisher) {
         self.dismissTimer = dismissTimer
     }
 
-    func viewDidAppear(context: ExtensionContext?) {
-        autodismiss(from: context)
+    func viewWillAppear(context: ExtensionContext?, origin: Any) {
+        if responder(from: origin) != nil {
+            var configuration: UIButton.Configuration = .filled()
+            configuration.background.backgroundColor = UIColor(.ui.teal2)
+            configuration.background.cornerRadius = 13
+            configuration.contentInsets = NSDirectionalEdgeInsets(top: 13, leading: 0, bottom: 13, trailing: 0)
+            configuration.attributedTitle = AttributedString(NSAttributedString(string: "Log in to Pocket", style: .logIn))
+            actionButtonConfiguration = configuration
+        }
     }
 
-    func canRespond(from origin: Any) -> Bool {
-        return responder(from: origin) != nil
+    func viewDidAppear(context: ExtensionContext?) {
+        autodismiss(from: context)
     }
 
     func finish(context: ExtensionContext?, completionHandler: ((Bool) -> Void)? = nil) {

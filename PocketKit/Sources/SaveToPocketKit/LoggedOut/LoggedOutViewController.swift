@@ -1,4 +1,5 @@
 import UIKit
+import Combine
 
 
 class LoggedOutViewController: UIViewController {
@@ -9,6 +10,8 @@ class LoggedOutViewController: UIViewController {
     private let dismissLabel = UILabel()
 
     private let viewModel: LoggedOutViewModel
+
+    private var subscriptions: Set<AnyCancellable> = []
 
     init(viewModel: LoggedOutViewModel) {
         self.viewModel = viewModel
@@ -60,31 +63,18 @@ class LoggedOutViewController: UIViewController {
 
         let tap = UITapGestureRecognizer(target: self, action: #selector(finish))
         view.addGestureRecognizer(tap)
+
+        viewModel.$actionButtonConfiguration.prefix(2).sink { [weak self] configuration in
+            if let configuration = configuration {
+                self?.createActionButton(configuration: configuration)
+            }
+        }.store(in: &subscriptions)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        if viewModel.canRespond(from: self) {
-            let actionButton = UIButton(
-                configuration:.borderless(),
-                primaryAction: UIAction { [weak self] _ in
-                    self?.logIn()
-                }
-            )
-            actionButton.accessibilityIdentifier = "log-in"
-
-            actionButton.configuration = viewModel.actionButtonConfiguration
-
-            view.addSubview(actionButton)
-
-            actionButton.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                actionButton.bottomAnchor.constraint(equalTo: dismissLabel.topAnchor, constant: -16),
-                actionButton.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-                actionButton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            ])
-        }
+        viewModel.viewWillAppear(context: extensionContext, origin: self)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -102,5 +92,24 @@ private extension LoggedOutViewController {
 
     private func logIn() {
         viewModel.logIn(from: extensionContext, origin: self)
+    }
+
+    private func createActionButton(configuration: UIButton.Configuration) {
+        let actionButton = UIButton(
+            configuration: configuration,
+            primaryAction: UIAction { [weak self] _ in
+                self?.logIn()
+            }
+        )
+        actionButton.accessibilityIdentifier = "log-in"
+
+        view.addSubview(actionButton)
+
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            actionButton.bottomAnchor.constraint(equalTo: dismissLabel.topAnchor, constant: -16),
+            actionButton.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            actionButton.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+        ])
     }
 }
